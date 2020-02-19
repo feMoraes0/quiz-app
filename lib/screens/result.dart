@@ -54,7 +54,7 @@ class Result extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: Text(
-                      (args['corrects'] >= 5) ? 'You are amazing!!' : 'Better luck next!',
+                      (args['corrects'] >= 5) ? 'You are amazing!!' : 'Better luck next time!',
                       style: TextStyle(
                         fontSize: 20.0,
                       ),
