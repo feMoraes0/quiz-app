@@ -32,7 +32,7 @@ class _QuizState extends State<Quiz> {
         await http.get('https://opentdb.com/api.php?amount=10&category=18');
     Map data = json.decode(response.body);
     List answers = [data['results'][0]['correct_answer']] +
-          data['results'][0]['incorrect_answers'];
+        data['results'][0]['incorrect_answers'];
     setState(() {
       this.questions = data['results'];
       this.currentTitle = data['results'][0]['question'];
@@ -54,10 +54,8 @@ class _QuizState extends State<Quiz> {
   void nextQuestion(BuildContext context) {
     int actualQuestion = this.currentQuestion;
     if (actualQuestion + 1 < this.questions.length) {
-      List answers = [
-              this.questions[actualQuestion + 1]['correct_answer']
-            ] +
-            this.questions[actualQuestion + 1]['incorrect_answers'];
+      List answers = [this.questions[actualQuestion + 1]['correct_answer']] +
+          this.questions[actualQuestion + 1]['incorrect_answers'];
       setState(() {
         this.currentQuestion++;
         this.currentTitle = this.questions[actualQuestion + 1]['question'];
@@ -82,11 +80,33 @@ class _QuizState extends State<Quiz> {
       body: SafeArea(
         child: (this.questions != null)
             ? Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.only(
+                  left: 20.0,
+                  right: 20.0,
+                  bottom: 20.0,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 5.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacementNamed(context, 'start');
+                            },
+                            child: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                              size: 32.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -214,7 +234,10 @@ class _QuizState extends State<Quiz> {
                 ),
               )
             : Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                  valueColor:
+                      new AlwaysStoppedAnimation<Color>(theme.primaryColor),
+                ),
               ),
       ),
     );
