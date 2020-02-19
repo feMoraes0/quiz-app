@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/screens/quiz.dart';
+import 'package:quiz_app/screens/result.dart';
 import 'package:quiz_app/screens/start.dart';
 
 void main() => runApp(MyApp());
@@ -13,11 +14,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         backgroundColor: Color.fromRGBO(37, 44, 74, 1.0),
-        primaryColor: Color.fromRGBO(24, 126, 234, 1.0),
+        primaryColor: Color.fromRGBO(190, 56, 55, 1.0),
       ),
       routes: {
         'start': (context) => Start(),
         'quiz': (context) => Quiz(),
+        'result': (context) => Result(),
       },
       home: Start(),
     );
