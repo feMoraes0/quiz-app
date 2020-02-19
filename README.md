@@ -1,12 +1,13 @@
 <h1 align="center">Quiz App</h1>
 
-## Prints
 <p align="center">
-  <img width="200" src="https://i.pinimg.com/originals/f4/f0/a6/f4f0a6f808c94a9b553edb6db6e97a5f.png"/>
-  <img width="200" src="https://i.pinimg.com/originals/f7/23/e4/f723e40b0afd98b8da577be204f954ad.png"/>
-  <img width="200" src="https://i.pinimg.com/originals/d0/50/21/d050216a7a8a5f89f63e140b128fd1d3.png"/>
-  <img width="200" src="https://i.pinimg.com/originals/13/8b/fa/138bfaa63ef3a8b9ea534d5cd713d385.png"/>
-  <img width="200" src="https://i.pinimg.com/originals/74/3e/b7/743eb7d3f017fa369e72d2f16ed93386.png"/>
+  <img width="250" src="https://i.pinimg.com/originals/f4/f0/a6/f4f0a6f808c94a9b553edb6db6e97a5f.png"/>
+  <img width="250" src="https://i.pinimg.com/originals/f7/23/e4/f723e40b0afd98b8da577be204f954ad.png"/>
+  <img width="250" src="https://i.pinimg.com/originals/d0/50/21/d050216a7a8a5f89f63e140b128fd1d3.png"/>
+</p>
+<p align="center">
+  <img width="250" src="https://i.pinimg.com/originals/13/8b/fa/138bfaa63ef3a8b9ea534d5cd713d385.png"/>
+  <img width="250" src="https://i.pinimg.com/originals/74/3e/b7/743eb7d3f017fa369e72d2f16ed93386.png"/>
 </p>
 
 ## How to use
