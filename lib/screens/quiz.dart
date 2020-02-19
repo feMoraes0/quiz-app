@@ -16,9 +16,11 @@ class _QuizState extends State<Quiz> {
   int corrects;
   int currentQuestion;
   int selectedAnswer;
+  DateTime now;
 
   @override
   void initState() {
+    this.now = DateTime.now();
     this.corrects = 0;
     this.currentQuestion = 0;
     this.questions = null;
@@ -67,6 +69,8 @@ class _QuizState extends State<Quiz> {
     } else {
       Navigator.pushReplacementNamed(context, 'result', arguments: {
         'corrects': this.corrects,
+        'start_at': this.now,
+        'list_length': this.questions.length,
       });
     }
   }

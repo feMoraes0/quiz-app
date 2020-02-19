@@ -7,6 +7,8 @@ class Result extends StatelessWidget {
     Size screen = MediaQuery.of(context).size;
     Map<String, dynamic> args = ModalRoute.of(context).settings.arguments;
 
+    int time = DateTime.now().difference(args['start_at']).inSeconds;
+
     return Scaffold(
       backgroundColor: theme.backgroundColor,
       body: Center(
@@ -35,14 +37,14 @@ class Result extends StatelessWidget {
                     height: screen.width / 3.5,
                     width: screen.width / 3.5,
                     child: Image(
-                      image: AssetImage((args['corrects'] > 5) ? 'assets/images/celebrate.png' : 'assets/images/repeat.png'),
+                      image: AssetImage((args['corrects'] >= 5) ? 'assets/images/celebrate.png' : 'assets/images/repeat.png'),
                       fit: BoxFit.cover,
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
-                      (args['corrects'] > 5) ? 'Congratulations!!' : 'Completed!',
+                      (args['corrects'] >= 5) ? 'Congratulations!!' : 'Completed!',
                       style: TextStyle(
                         fontSize: 30.0,
                         fontWeight: FontWeight.w600,
@@ -52,14 +54,14 @@ class Result extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: Text(
-                      (args['corrects'] > 5) ? 'You are amazing!!' : 'Better luck next!',
+                      (args['corrects'] >= 5) ? 'You are amazing!!' : 'Better luck next!',
                       style: TextStyle(
                         fontSize: 20.0,
                       ),
                     ),
                   ),
                   Text(
-                    '${args['corrects']} correct answers.',
+                    '${args['corrects']}/${args['list_length']} correct answers in $time seconds.',
                     style: TextStyle(
                       fontSize: 20.0,
                     ),
