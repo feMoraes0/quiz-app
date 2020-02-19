@@ -9,7 +9,9 @@ class Start extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, 'quiz');
+            },
             child: Container(
               padding: const EdgeInsets.symmetric(
                 vertical: 15.0,
