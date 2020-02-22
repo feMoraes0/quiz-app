@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:html_unescape/html_unescape.dart';
+import 'package:quiz_app/components/quiz_option.dart';
 
 class Quiz extends StatefulWidget {
   @override
@@ -78,7 +79,6 @@ class _QuizState extends State<Quiz> {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    Size screen = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: theme.backgroundColor,
       body: SafeArea(
@@ -189,46 +189,10 @@ class _QuizState extends State<Quiz> {
                                 this.selectedAnswer = index;
                               });
                             },
-                            child: Container(
-                              margin: const EdgeInsets.only(bottom: 15.0),
-                              padding: const EdgeInsets.all(15.0),
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: (this.selectedAnswer != index)
-                                      ? Colors.white
-                                      : theme.primaryColor,
-                                  width: 2.0,
-                                ),
-                                borderRadius: BorderRadius.circular(180.0),
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  SizedBox(
-                                    width: screen.width * 0.75,
-                                    child: Text(
-                                      HtmlUnescape().convert(answer),
-                                      maxLines: 5,
-                                      style: TextStyle(
-                                        color: (this.selectedAnswer != index)
-                                            ? Colors.white
-                                            : theme.primaryColor,
-                                        fontSize: 16.0,
-                                      ),
-                                    ),
-                                  ),
-                                  Icon(
-                                    (this.selectedAnswer != index)
-                                        ? Icons.panorama_fish_eye
-                                        : Icons.check_circle_outline,
-                                    color: (this.selectedAnswer != index)
-                                        ? Colors.white
-                                        : theme.primaryColor,
-                                  )
-                                ],
-                              ),
+                            child: QuizOption(
+                              index: index,
+                              selectedAnswer: this.selectedAnswer,
+                              answer: answer,
                             ),
                           );
                         },
@@ -239,8 +203,9 @@ class _QuizState extends State<Quiz> {
               )
             : Center(
                 child: CircularProgressIndicator(
-                  valueColor:
-                      new AlwaysStoppedAnimation<Color>(theme.primaryColor),
+                  valueColor: new AlwaysStoppedAnimation<Color>(
+                    theme.primaryColor,
+                  ),
                 ),
               ),
       ),
