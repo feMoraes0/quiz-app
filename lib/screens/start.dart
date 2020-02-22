@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/components/custom_button.dart';
 
 class Start extends StatelessWidget {
   @override
@@ -25,27 +26,7 @@ class Start extends StatelessWidget {
                 onTap: () {
                   Navigator.pushReplacementNamed(context, 'quiz');
                 },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 15.0,
-                    horizontal: 30.0,
-                  ),
-                  decoration: BoxDecoration(
-                    color: theme.primaryColor,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(
-                        30.0,
-                      ),
-                    ),
-                  ),
-                  child: Text(
-                    'Start Quiz!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18.0,
-                    ),
-                  ),
-                ),
+                child: CustomButton(text: 'Start Quiz!'),
               ),
             ),
           ],

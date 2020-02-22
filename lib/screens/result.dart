@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/components/custom_button.dart';
 
 class Result extends StatelessWidget {
   @override
@@ -70,26 +71,7 @@ class Result extends StatelessWidget {
                     onTap: () {
                       Navigator.pushReplacementNamed(context, 'start');
                     },
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(
-                        vertical: 15.0,
-                        horizontal: 30.0,
-                      ),
-                      padding: const EdgeInsets.all(15.0),
-                      decoration: BoxDecoration(
-                        color: theme.primaryColor,
-                        borderRadius: BorderRadius.circular(180.0),
-                      ),
-                      child: Text(
-                        'Play Again',
-                        textAlign: TextAlign.center,
-                        maxLines: 5,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
+                    child: CustomButton(text: 'Play Again',),
                   )
                 ],
               ),
